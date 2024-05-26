@@ -94,4 +94,46 @@ npx nodemon src/app.js
 |-- README.md
 ```
 
+##API Endpoint
+###Authentication
+  Register: POST /api/auth/register
+  Request Body:
+  ```bash
+{
+  "name": "John Doe",
+  "email": "john.doe@example.com",
+  "password": "password123",
+  "role": "SELLER"
+}
+````
+Login: POST /api/auth/login
+Request Body:
+```bash
+{
+  "email": "john.doe@example.com",
+  "password": "password123"
+}
+```
+Books
+Upload Books: POST /api/books/upload (Seller only)
+
+Form Data: file (CSV file with columns: title, author, price)
+Header: Authorization: Bearer <token>
+Get All Books: GET /api/books
+
+Header: Authorization: Bearer <token>
+Get Book by ID: GET /api/books/:id
+
+Header: Authorization: Bearer <token>
+Update Book: PUT /api/books/:id (Seller only)
+
+Request Body:
+```bash
+{
+  "title": "New Title",
+  "author": "New Author",
+  "price": "12.99"
+}
+```
+
 
